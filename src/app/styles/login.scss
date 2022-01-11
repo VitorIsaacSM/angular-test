@@ -1,0 +1,19 @@
+@mixin loginLayout {
+    .content {
+        margin: 100px auto;
+        max-width: 500px;
+    
+        .card {
+            border-radius: 15px;
+            text-align: center;
+            padding: 30px 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+    
+            & > * {
+                width: 100%;
+            }
+        }
+    }
+}

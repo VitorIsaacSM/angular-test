@@ -1,0 +1,8 @@
+<div class="confirm-body">
+  <h5 class="mb-2" *ngIf="options?.confirmTitle">{{ options?.confirmTitle }}</h5>
+  <p class="mb-2" *ngIf="options?.confirmText">{{ options?.confirmText }}</p>
+  <div class="mt-5 d-flex justify-content-between align-items-center">
+    <button (click)="onCancel()" class="f-1 btn btn-secondary mr-2">{{ options?.cancelButton }}</button>
+    <button (click)="onConfirm()" class="f-1 btn btn-primary">{{ options?.confirmButton }}</button>
+  </div>
+</div>

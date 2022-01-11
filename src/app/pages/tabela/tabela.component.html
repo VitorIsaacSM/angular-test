@@ -1,0 +1,31 @@
+<div class="p-5 container w-100">
+  <div class="d-flex justify-content-between align-items-center">
+    <div class="d-flex items-center">
+      <p>Tabela</p>
+      <p class="mx-4">/</p>
+      <a (click)="toForm()" class="text-primary cursor-pointer">Formulário</a>
+    </div>
+    <a (click)="logout()" class="text-secondary cursor-pointer">
+      <i class="fas fa-sign-out-alt"></i>
+      Logout
+    </a>
+  </div>
+  <div class="my-5">
+    <button class="btn btn-primary" (click)="update()">
+      <i class="fas fa-redo-alt mr-2"></i>
+      Atualizar tabela
+    </button>
+  </div>
+  <table class="table border">
+    <tr>
+      <th *ngFor="let col of columns">
+        {{ col }}
+      </th>
+    </tr>
+    <tr *ngFor="let d of data">
+      <td *ngFor="let col of columns">
+        {{ d[col] }}
+      </td>
+    </tr>
+  </table>
+</div>

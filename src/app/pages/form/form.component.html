@@ -1,0 +1,38 @@
+<div class="p-5 container w-100">
+  <div class="d-flex justify-content-between align-items-center">
+    <div class="d-flex items-center">
+      <a (click)="toTabela()" class="text-primary cursor-pointer">Tabela</a>
+      <p class="mx-4">/</p>
+      <p>Formulário</p>
+    </div>
+    <a (click)="logout()" class="text-secondary cursor-pointer">
+      <i class="fas fa-sign-out-alt"></i>
+      Logout
+    </a>
+  </div>
+  <div class="my-5">
+    <button class="btn btn-primary" (click)="update()">
+      <i class="fas fa-redo-alt mr-2"></i>
+      Atualizar formulário
+    </button>
+  </div>
+  <div class="mt-4">
+    <div *ngFor="let campo of campos; let i = index">
+        <label [for]="campo.id" style="width: 500px">
+          <p>{{ campo.titulo }}</p>
+          <input *ngIf="campo.tipo === 'TEXTO'" [class.is-invalid]="form.controls[i].invalid && form.controls[i].touched" [id]="campo.id" [formControl]="form.controls[i]" type="text" class="form-control">
+          <input *ngIf="campo.tipo === 'NUMERICO'" [class.is-invalid]="form.controls[i].invalid && form.controls[i].touched" [id]="campo.id" [formControl]="form.controls[i]" type="number" class="form-control">
+          <select *ngIf="campo.tipo === 'SELECAO'" [class.is-invalid]="form.controls[i].invalid && form.controls[i].touched" [id]="campo.id" [formControl]="form.controls[i]" class="form-control" >
+            <option *ngFor="let opt of campo.opcoes" [ngValue]="opt">
+              {{ opt }}
+            </option>
+          </select>
+        </label>
+    </div>
+  </div>
+  <div class="mt-4">
+    <button class="btn btn-outline-primary" (click)="salvar()">
+      Salvar formulário
+    </button>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="loading" *ngIf="!standalone; else simpleView">
+    <div>
+        <i class="fa fa-circle-notch fa-spin fa-3x fa-fw"></i>
+        <span class="mt-2">Aguarde</span>
+    </div>
+</div>
+<ng-template #simpleView>
+   <div class="loader"></div>
+</ng-template>
